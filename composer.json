@@ -1,0 +1,30 @@
+{
+  "name": "yangweijie/gm-helper",
+  "type": "library",
+  "description": "",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "yangweijie",
+      "email": "917647288@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "ext-gmp": "*",
+    "php" : ">7.*",
+    "phpseclib/phpseclib": "^3.0.43"
+  },
+  "extra": {
+
+  },
+  "autoload": {
+    "psr-4": {
+      "sm\\": "src/"
+    },
+    "files": [
+      "src/helper.php"
+    ]
+  }
+
+}
