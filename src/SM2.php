@@ -59,6 +59,10 @@ class SM2 {
         $this->gy = $eccParams['gy'];
     }
 
+    public function getCurve(){
+        return $this->curve;
+    }
+
     public function generalPair(): array
     {
         $pointG = new Point($this->gx, $this->gy);
@@ -90,8 +94,16 @@ class SM2 {
     // 生成标准的 base64 的 asn1(r,s)签名
     public function sign($document, $prikey, $publicKey = null, $userId = null): string
     {
-        list($r, $s) = $this->signRaw($document, $prikey, $publicKey, $userId);
-        return Asn1::rsToAsn1($r, $s);
+        try {
+            list($r, $s) = $this->signRaw($document, $prikey, $publicKey, $userId);
+            return Asn1::rsToAsn1($r, $s);
+        }catch (Exception $e){
+            if(str_contains($e->getMessage(),'even length')){
+                return $this->sign($document, $prikey, $publicKey, $userId);
+            }else{
+                throw $e;
+            }
+        }
     }
 
     /**
@@ -140,7 +152,7 @@ class SM2 {
                 continue;
                 // throw new \RuntimeException('Error: random number S = 0');
             }
-            return array(gmp_strval($r, 16), gmp_strval($s, 16));
+            return [gmp_strval($r, 16), gmp_strval($s, 16)];
         }
     }
 

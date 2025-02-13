@@ -12,8 +12,9 @@
   "minimum-stability": "dev",
   "require": {
     "ext-gmp": "*",
-    "php" : ">7.*",
-    "phpseclib/phpseclib": "^3.0.43"
+    "php" : ">=7.0",
+    "phpseclib/phpseclib": "^3.0.43",
+    "symfony/polyfill-php80": "*"
   },
   "extra": {
 
