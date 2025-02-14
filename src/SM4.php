@@ -135,7 +135,7 @@ class SM4 extends BlockCipher
      * @return string
      * @throws Exception
      */
-    public function encrypt(string $plaintext): string
+    public function encrypt($plaintext): string
     {
         if($this->getEngine() == self::ENGINE_MAP[self::ENGINE_OPENSSL]){
             return parent::encrypt($plaintext);
@@ -196,7 +196,7 @@ class SM4 extends BlockCipher
      * @return string
      * @throws Exception
      */
-    public function decrypt(string $ciphertext): string
+    public function decrypt($ciphertext): string
     {
         if($this->getEngine() == self::ENGINE_MAP[self::ENGINE_OPENSSL]){
             return parent::decrypt($ciphertext);
@@ -329,7 +329,7 @@ class SM4 extends BlockCipher
      *
      * @see \phpseclib3\Crypt\Common\SymmetricKey::__construct()
      */
-    protected function isValidEngineHelper(int $engine): bool
+    protected function isValidEngineHelper($engine): bool
     {
         switch ($engine) {
             case self::ENGINE_OPENSSL:
@@ -414,13 +414,17 @@ class SM4 extends BlockCipher
         return pack("N4", $X[3], $X[2], $X[1], $X[0]);
     }
 
-    protected function encryptBlock(string $in): string
+    protected function encryptBlock($in): string
     {
         return $this->processBlock($in, $this->rk);
     }
 
-    protected function decryptBlock(string $in): string
+    protected function decryptBlock($in): string
     {
         return $this->processBlock($in, array_reverse($this->rk));
+    }
+
+    protected function setupKey(){
+        
     }
 }
