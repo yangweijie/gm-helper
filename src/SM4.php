@@ -105,7 +105,7 @@ class SM4 extends BlockCipher
     /**
      * 构造函数
      *
-     * @param string      $key  必须为16字节
+     * @param string      $key  必须为16字节 base64_decode 即可 
      * @param string      $mode 支持：cbc|ecb|ofb|cfb|ctr（不区分大小写）
      * @param string|null $iv   除 ecb 模式外必须提供16字节IV
      *
