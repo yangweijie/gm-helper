@@ -21,11 +21,16 @@
   },
   "autoload": {
     "psr-4": {
-      "sm\\": "src/"
+      "phpseclib3\\Crypt\\Sm\\": "src/phpseclib3/Crypt/Sm/"
     },
     "files": [
       "src/helper.php"
     ]
+  },
+  "autoload-dev": {
+  "psr-4": {
+    "phpseclib3\\Crypt\\Sm\\Tests\\": "tests/"
+  }
   }
 
 }
