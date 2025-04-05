@@ -13,7 +13,7 @@
   "require": {
     "ext-gmp": "*",
     "php" : ">=7.0",
-    "phpseclib/phpseclib": "^3.0.43",
+    "lpilp/guomi":"^2.0.0",
     "symfony/polyfill-php80": "*"
   },
   "extra": {
@@ -21,16 +21,16 @@
   },
   "autoload": {
     "psr-4": {
-      "phpseclib3\\Crypt\\Sm\\": "src/phpseclib3/Crypt/Sm/"
+      "yangweijie": "src/"
     },
     "files": [
       "src/helper.php"
     ]
   },
   "autoload-dev": {
-  "psr-4": {
-    "phpseclib3\\Crypt\\Sm\\Test\\": "test/"
-  }
+    "psr-4": {
+
+    }
   }
 
 }
