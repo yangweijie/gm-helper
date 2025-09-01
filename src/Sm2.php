@@ -23,7 +23,7 @@ use Rtgm\util\SmSignFormatRS;
             if($appendZeroFour){
                 $ret = '04'.$ret;
             }
-            return base64_encode(hex2bin($ret))
+            return base64_encode(hex2bin($ret));
         }
     }
 
